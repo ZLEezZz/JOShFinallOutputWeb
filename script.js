@@ -1,68 +1,77 @@
-let editIndex = -1;
+let records = [];
 
-window.onload = function() {
-  displayData();
-}
-
-// AUTO COMPUTE
 function computeAverage() {
-  let p = parseFloat(prelim.value);
-  let m = parseFloat(midterm.value);
-  let f = parseFloat(final.value);
-  
-  if (isNaN(p) || isNaN(m) || isNaN(f)) {
-    average.value = "";
-    return;
-  }
-  
-  average.value = ((p * 0.3) + (m * 0.3) + (f * 0.4)).toFixed(2);
+  let p = parseFloat(prelim.value) || 0;
+  let m = parseFloat(midterm.value) || 0;
+  let f = parseFloat(final.value) || 0;
+
+  let avg = (p + m + f) / 3;
+  average.value = avg.toFixed(2);
 }
 
-// ADD / UPDATE
 function addRecord() {
-  
-  if (name.value === "" || average.value === "") {
-    alert("Complete inputs first!");
-    return;
-  }
-  
-  let data = JSON.parse(localStorage.getItem("students")) || [];
-  
-  let student = {
-    name: name.value,
+  let record = {
+    year: new Date().getFullYear(),
     section: section.value,
     strand: strand.value,
+    name: name.value,
     subject: subject.value,
     prelim: prelim.value,
     midterm: midterm.value,
     final: final.value,
     average: average.value
   };
-  
-  if (editIndex === -1) {
-    data.push(student);
-  } else {
-    data[editIndex] = student;
-    editIndex = -1;
-  }
-  
-  localStorage.setItem("students", JSON.stringify(data));
+
+  records.push(record);
   displayData();
   clearFields();
 }
 
-// DISPLAY
 function displayData() {
-  let data = JSON.parse(localStorage.getItem("students")) || [];
   tableBody.innerHTML = "";
-  
-  data.forEach((s, i) => {
+  let total = 0;
+
+  records.forEach((r, i) => {
+    total += parseFloat(r.average);
+
     tableBody.innerHTML += `
-<tr>
-<td>Grade 11</td>
-<td>${s.section}</td>
-<td>${s.strand}</td>
-<td>${s.name}</td>
+    <tr>
+      <td>${r.year}</td>
+      <td>${r.section}</td>
+      <td>${r.strand}</td>
+      <td>${r.name}</td>
+      <td>${r.subject}</td>
+      <td>${r.prelim}</td>
+      <td>${r.midterm}</td>
+      <td>${r.final}</td>
+      <td>${r.average}</td>
+      <td><button onclick="deleteRecord(${i})">Delete</button></td>
+    </tr>`;
+  });
+
+  genAvg.innerText = records.length 
+    ? (total / records.length).toFixed(2) 
+    : "0.00";
+}
+
+function deleteRecord(i) {
+  records.splice(i, 1);
+  displayData();
+}
+
+function clearFields() {
+  document.querySelectorAll("input").forEach(i => i.value = "");
+  document.querySelectorAll("select").forEach(s => s.value = "");
+}
+
+function searchData() {
+  let val = search.value.toLowerCase();
+  let rows = document.querySelectorAll("#tableBody tr");
+
+  rows.forEach(r => {
+    r.style.display = r.innerText.toLowerCase().includes(val) ? "" : "none";
+  });
+}<td>${s.name}</td>
 <td>${s.subject}</td>
 <td>${s.prelim}</td>
 <td>${s.midterm}</td>
