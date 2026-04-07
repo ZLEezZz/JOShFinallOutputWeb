@@ -1,68 +1,124 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Segoe UI;
+body {
+  font-family: Arial;
+  background: linear-gradient(135deg, #1e7f3f, #4CAF50);
+  margin: 0;
+  color: #333;
 }
 
-body{
-background:#eef3f9;
-padding:30px;
+.container {
+  width: 90%;
+  margin: auto;
 }
 
-.container{
-max-width:1100px;
-margin:auto;
+/* HEADER */
+.header {
+  margin: 20px 0;
 }
 
-header{
-background:linear-gradient(135deg,#1f4e79,#3498db);
-color:white;
-text-align:center;
-padding:20px;
-border-radius:10px;
-margin-bottom:20px;
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: white;
+  padding: 10px 20px;
+  border-radius: 12px;
+  width: fit-content;
 }
 
-.card{
-background:white;
-padding:20px;
-border-radius:12px;
-margin-bottom:20px;
-box-shadow:0 4px 12px rgba(0,0,0,0.1);
+.logo-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  background: transparent;
 }
 
-.form-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
+.logo-title {
+  margin: 0;
+  color: #2e7d32;
 }
 
-input, select{
-padding:10px;
-border:1px solid #ccc;
-border-radius:6px;
+.logo-sub {
+  margin: 0;
+  font-size: 12px;
 }
 
-#average{
-background:#f1f1f1;
-font-weight:bold;
+/* CARD */
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
 }
 
-.buttons{
-margin-top:15px;
-display:flex;
-gap:10px;
+/* FORM */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }
 
-button{
-padding:10px;
-border:none;
-border-radius:6px;
-color:white;
-cursor:pointer;
-transition:0.3s;
+input, select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
+
+/* BUTTONS */
+.buttons {
+  margin-top: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.add {
+  background: #4CAF50;
+  color: white;
+}
+
+.clear {
+  background: #f44336;
+  color: white;
+}
+
+/* SEARCH */
+.search-box {
+  margin: 15px 0;
+}
+
+.search-box input {
+  width: 100%;
+}
+
+/* TABLE */
+table {
+  width: 100%;
+  background: white;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th {
+  background: #2e7d32;
+  color: white;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.general {
+  margin-top: 10px;
+  font-weight: bold;
+  color: white;
+}}
 
 .add{background:#2ecc71;}
 .add:hover{background:#27ae60;}
