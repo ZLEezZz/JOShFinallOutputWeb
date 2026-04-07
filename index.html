@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Grading System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+<h1>STUDENT GRADING SYSTEM</h1>
+</header>
+
+<!-- INPUT -->
+<section class="card">
+<h2>Input Section</h2>
+
+<div class="form-grid">
+
+<input id="name" type="text" placeholder="Student Name">
+
+<select id="section">
+<option value="">Section</option>
+<option>A</option>
+<option>B</option>
+</select>
+
+<select id="strand">
+<option value="">Strand</option>
+<option>STEM</option>
+<option>HUMSS</option>
+<option>ABM</option
+<option>ICT</option>
+</select>
+
+<input id="subject" type="text" placeholder="Subject">
+
+<input id="prelim" type="number" placeholder="Prelim" oninput="computeAverage()">
+<input id="midterm" type="number" placeholder="Midterm" oninput="computeAverage()">
+<input id="final" type="number" placeholder="Final" oninput="computeAverage()">
+
+<input id="average" type="text" placeholder="Average" readonly>
+
+</div>
+
+<div class="buttons">
+<button class="add" onclick="addRecord()">Add / Update</button>
+<button class="clear" onclick="clearFields()">Clear</button>
+</div>
+
+</section>
+
+<!-- SEARCH -->
+<div class="search-box">
+<input type="text" id="search" placeholder="Search..." onkeyup="searchData()">
+</div>
+
+<!-- RECORDS -->
+<section class="records">
+<h2>Student Records</h2>
+
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Section</th>
+<th>Strand</th>
+<th>Name</th>
+<th>Subject</th>
+<th>Prelim</th>
+<th>Midterm</th>
+<th>Final</th>
+<th>Average</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody id="tableBody"></tbody>
+</table>
+
+<div class="general">
+GENERAL AVERAGE: <span id="genAvg">0.00</span>
+</div>
+
+</section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
