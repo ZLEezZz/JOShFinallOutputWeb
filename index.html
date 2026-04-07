@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Student Grading System</title>
+<title>SGS - Student Grading System</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -10,8 +10,15 @@
 
 <div class="container">
 
-<header>
-<h1>STUDENT GRADING SYSTEM</h1>
+<!-- HEADER WITH LOGO -->
+<header class="header">
+  <div class="logo-box">
+    <img src="logo.png" alt="SGS Logo" class="logo-img">
+    <div>
+      <h2 class="logo-title">SGS</h2>
+      <p class="logo-sub">Student Grading System</p>
+    </div>
+  </div>
 </header>
 
 <!-- INPUT -->
@@ -32,7 +39,7 @@
 <option value="">Strand</option>
 <option>STEM</option>
 <option>HUMSS</option>
-<option>ABM</option
+<option>ABM</option>
 <option>ICT</option>
 </select>
 
@@ -63,6 +70,35 @@
 <h2>Student Records</h2>
 
 <table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Section</th>
+<th>Strand</th>
+<th>Name</th>
+<th>Subject</th>
+<th>Prelim</th>
+<th>Midterm</th>
+<th>Final</th>
+<th>Average</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody id="tableBody"></tbody>
+</table>
+
+<div class="general">
+GENERAL AVERAGE: <span id="genAvg">0.00</span>
+</div>
+
+</section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html><table>
 <thead>
 <tr>
 <th>Year</th>
